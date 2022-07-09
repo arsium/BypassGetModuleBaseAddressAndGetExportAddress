@@ -44,7 +44,7 @@ namespace CustomGetProcAndGetModule
         public enum Machine : ushort
         {
             IMAGE_FILE_MACHINE_UNKNOWN = 0,
-            IMAGE_FILE_MACHINE_TARGET_HOST = 0x0001,  // Useful for indicating we want to interact with the host and not a WoW guest.
+            IMAGE_FILE_MACHINE_TARGET_HOST = 0x0001,
             IMAGE_FILE_MACHINE_I386 = 0x014c, // Intel 386.
             IMAGE_FILE_MACHINE_R3000 = 0x0162, // MIPS little-endian, =0x160 big-endian
             IMAGE_FILE_MACHINE_R4000 = 0x0166,// MIPS little-endian
@@ -708,18 +708,15 @@ namespace CustomGetProcAndGetModule
             return IntPtr.Zero;
         }
 
-        [UnmanagedFunctionPointer(CallingConvention.Winapi)]//PInvoke stack imbalance
-        public delegate int MessageBoxWW(IntPtr wHandle, byte[] lpText, byte[] lpCap, ulong uType);
+        [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+        public delegate int MessageBoxW(IntPtr wHandle, byte[] lpText, byte[] lpCap, ulong uType);
         static void Main(string[] args)
         {
             IntPtr ptrBaseAddress = GetExportAddress("user32.dll", "MessageBoxW");
 
-            MessageBoxWW call2 = (MessageBoxWW)Marshal.GetDelegateForFunctionPointer(ptrBaseAddress, typeof(MessageBoxWW));
+            MessageBoxW callMsg = (MessageBoxW)Marshal.GetDelegateForFunctionPointer(ptrBaseAddress, typeof(MessageBoxW));
 
-            if (IntPtr.Size == 4)
-                call2(IntPtr.Zero, Encoding.Unicode.GetBytes("HELLO"), Encoding.Unicode.GetBytes("Read from custom export"), 0x0);//PInvoke stack imbalance
-            else
-                call2(IntPtr.Zero, Encoding.Unicode.GetBytes("HELLO"), Encoding.Unicode.GetBytes("Read from custom export"), 0x0);
+            callMsg(IntPtr.Zero, Encoding.Unicode.GetBytes("HELLO"), Encoding.Unicode.GetBytes("Read from custom export"), 0x0);
         }
     }
 }
