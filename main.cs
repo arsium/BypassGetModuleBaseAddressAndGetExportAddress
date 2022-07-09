@@ -7,7 +7,7 @@ using System.Text;
 /*
 || AUTHOR Arsium ||
 || github : https://github.com/arsium       ||
-|| Please let this credit for all time I passed to work on it ||
+|| Please let this credit for all time I passed to work on it and neurons I lost ||
 ||
 || GetModuleBaseAddress ||
 || Thx to : https://github.com/stevemk14ebr/PolyHook_2_0/blob/master/sources/IatHook.cpp#L51 to point me in the right direction ||
