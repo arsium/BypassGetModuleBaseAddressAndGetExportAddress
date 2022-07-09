@@ -5,18 +5,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 
 /*
-|| GetModuleBaseAddress ||
 || AUTHOR Arsium ||
 || github : https://github.com/arsium       ||
 || Please let this credit for all time I passed to work on it ||
+||
+|| GetModuleBaseAddress ||
 || Thx to : https://github.com/stevemk14ebr/PolyHook_2_0/blob/master/sources/IatHook.cpp#L51 to point me in the right direction ||
-*/
-
-/*
+||
 || GetExportAddress ||
-|| AUTHOR Arsium ||
-|| github : https://github.com/arsium       ||
-|| Please let this credit for all the time I spent to work on it ||
 || Based on : https://blog.xpnsec.com/weird-ways-to-execute-dotnet/ ||
 || Based on : https://social.msdn.microsoft.com/Forums/azure/zh-CN/6490b46f-909f-43b0-9cb9-220d0b4812fc/how-to-get-functions-exported-from-a-dll-file?forum=vbinterop ||
 */
