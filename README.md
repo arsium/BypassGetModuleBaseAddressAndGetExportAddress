@@ -7,3 +7,4 @@ Works with x86 and x64.
 <br>
 ## TODO 
 * Some code refractoring & improvements
+* Some docs or explanations
